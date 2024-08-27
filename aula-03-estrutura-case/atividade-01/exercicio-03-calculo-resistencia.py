@@ -20,19 +20,16 @@ match calculo:
         u = float(input("Digite a Tensão (em Volt)  para calcular a Resistência (em Ohm):"))
         i = float(input("Digite a Corrente (em Ampére)  para calcular a Resistência (em Ohm):"))
         r = u / i
-        print(f"O cálculo da resistencia é: {r}")
+        print(f"O cálculo da resistência é: {r}")
         
     case 3:
         u = float(input("Digite a Tensão (em Volt)  para calcular a Corrente (em Ampére):"))
         r = float(input("Digite a Resistência (em Ohm)   para calcular a Corrente (em Ampére):"))
         i = u / r
-        print(f"O cálculo da resistencia é: {i}")
+        print(f"O cálculo da corrente é: {i}")
         
     case _:
-        print("Escolha invalida!")
-        exit
-        
-        
-        
+        print("Escolha inválida!")
+        exit()
 
 print('*' * 40)
