@@ -1,34 +1,34 @@
-import os
-os.system('cls' if os.name == 'nt' else 'clear')
+import os 
+os.system('cls')
 
 print('*' * 40)
 
-print("1. Pagamento à vista - 10% de desconto")
-print("2. Pagamento em 2x - 5% de desconto")
-print("3. Pagamento em 3x ou mais - Sem desconto")
+print("1. À vista (em espécie) - 15% de desconto")
+print("2. Cartão de débito - 10% de desconto")
+print("3. Cartão de crédito (vencimento) - 5% de desconto")
 
-opcao = int(input("Escolha a forma de pagamento: "))
+opcao = int(input("Escolha a condição de pagamento (1, 2 ou 3): "))
 
 preco_total = float(input("Digite o preço total da compra: R$ "))
 
 match opcao:
     case 1:
-        desconto = 0.10
+        desconto = 0.15
         valor_final = preco_total * (1 - desconto)
         print(f"Você escolheu pagamento à vista.")
-        print(f"Desconto aplicado: 10%")
+        print(f"Desconto aplicado: 15%")
         
     case 2:
-        desconto = 0.05
+        desconto = 0.10
         valor_final = preco_total * (1 - desconto)
-        print(f"Você escolheu pagamento em 2x.")
-        print(f"Desconto aplicado: 5%")
+        print(f"Você escolheu pagamento com cartão de débito.")
+        print(f"Desconto aplicado: 10%")
         
     case 3:
-        desconto = 0.0
-        valor_final = preco_total
-        print(f"Você escolheu pagamento em 3x ou mais.")
-        print(f"Sem desconto aplicado.")
+        desconto = 0.05
+        valor_final = preco_total * (1 - desconto)
+        print(f"Você escolheu pagamento com cartão de crédito (vencimento).")
+        print(f"Desconto aplicado: 5%")
         
     case _:
         print("Escolha inválida!")
