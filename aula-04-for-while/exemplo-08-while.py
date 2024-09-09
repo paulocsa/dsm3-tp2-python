@@ -3,7 +3,7 @@ os.system('cls')  # Limpa a tela do terminal no Windows. No Linux ou macOS, voc√
 
 print('*' * 40)  
 
-# Comando while de forma decrescente
+# Coman\ado while de forma decrescente
 
 count = 300  # Inicializa a vari√°vel `count` com 300
 
