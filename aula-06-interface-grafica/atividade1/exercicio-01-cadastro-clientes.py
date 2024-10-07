@@ -1,71 +1,65 @@
-from tkinter import *  # Importa todas as funcionalidades da biblioteca Tkinter para criar interfaces gráficas.
-import os  # Importa a biblioteca 'os' para realizar operações no sistema operacional.
+from tkinter import *
+import os
 
-# Limpa a tela do terminal no Windows. Em sistemas Linux ou macOS, use 'clear'.
 os.system("cls")
 
-# Cria uma instância de uma janela principal chamada 'tela'
 tela = Tk()
-
-# Define o título da janela
-tela.title("Calculadora de Soma")
-
-# Configura o fundo da janela com a cor especificada em hexadecimal
+tela.title("Cadastro de Clientes")
 tela.configure(background="#1e3743")
 
-# Define a largura e altura da janela
-largura = 800
-altura = 300
-
-# Obtém a largura da tela
+largura = 500
+altura = 400
 largura_screen = tela.winfo_screenwidth()
-
-# Obtém a altura da tela
 altura_screen = tela.winfo_screenheight()
-
-# Calcula a posição horizontal (x) para centralizar a janela
 posx = largura_screen / 2 - largura / 2
-
-# Calcula a posição vertical (y) para centralizar a janela
 posy = altura_screen / 2 - altura / 2
-
-# Define a geometria da janela, com dimensões e posição centralizadas
 tela.geometry("%dx%d+%d+%d" % (largura, altura, posx, posy))
 
-# Labels e caixas de entrada
-lbl_num1 = Label(tela, text="Número 1: ", font="Arial 15 bold", bg="#1e3743", fg="white")
-lbl_num1.place(x=50, y=45)
+lbl_nome = Label(tela, text="Nome: ", font="Arial 15 bold", bg="#1e3743", fg="white")
+lbl_nome.place(x=50, y=45)
 
-txt_num1 = Entry(tela, width=20, borderwidth=10, fg="blue", bg="white")
-txt_num1.place(x=280, y=45)
+txt_nome = Entry(tela, width=30, borderwidth=5, fg="blue", bg="white")
+txt_nome.place(x=200, y=45)
 
-lbl_num2 = Label(tela, text="Número 2: ", font="Arial 15 bold", bg="#1e3743", fg="white")
-lbl_num2.place(x=50, y=85)
+lbl_email = Label(tela, text="E-mail: ", font="Arial 15 bold", bg="#1e3743", fg="white")
+lbl_email.place(x=50, y=85)
 
-txt_num2 = Entry(tela, width=20, borderwidth=10, fg="blue", bg="white")
-txt_num2.place(x=280, y=85)
+txt_email = Entry(tela, width=30, borderwidth=5, fg="blue", bg="white")
+txt_email.place(x=200, y=85)
 
-lbl_resul = Label(tela, text="Resultado: ", font="Arial 15 bold", bg="#1e3743", fg="white")
-lbl_resul.place(x=50, y=125)
+lbl_telefone = Label(tela, text="Telefone: ", font="Arial 15 bold", bg="#1e3743", fg="white")
+lbl_telefone.place(x=50, y=125)
 
-txt_resul = Entry(tela, width=20, borderwidth=10, fg="blue", bg="white")
-txt_resul.place(x=280, y=125)
+txt_telefone = Entry(tela, width=30, borderwidth=5, fg="blue", bg="white")
+txt_telefone.place(x=200, y=125)
 
-def calcularSoma():
+lbl_endereco = Label(tela, text="Endereço: ", font="Arial 15 bold", bg="#1e3743", fg="white")
+lbl_endereco.place(x=50, y=165)
+
+txt_endereco = Entry(tela, width=30, borderwidth=5, fg="blue", bg="white")
+txt_endereco.place(x=200, y=165)
+
+lbl_resultado = Label(tela, text="Dados cadastrados: ", font="Arial 15 bold", bg="#1e3743", fg="white")
+lbl_resultado.place(x=50, y=250)
+
+txt_resul = Entry(tela, width=40, borderwidth=5, fg="blue", bg="white")
+txt_resul.place(x=50, y=290)
+
+def cadastrarCliente():
     try:
-        # Obtém os números a partir das caixas de entrada
-        num1 = float(txt_num1.get())
-        num2 = float(txt_num2.get())
-        soma = num1 + num2
-        txt_resul.delete(0, END)  # Limpa a caixa de resultado
-        txt_resul.insert(0, str(soma))  # Insere o resultado na caixa de texto
+        nome = txt_nome.get()
+        email = txt_email.get()
+        telefone = txt_telefone.get()
+        endereco = txt_endereco.get()
+
+        resultado = f"Nome: {nome}, E-mail: {email}, Telefone: {telefone}, Endereço: {endereco}"
+        txt_resul.delete(0, END)
+        txt_resul.insert(0, resultado)
     except ValueError:
         txt_resul.delete(0, END)
-        txt_resul.insert(0, "Erro!")  # Exibe um erro se a conversão falhar
+        txt_resul.insert(0, "Erro!")
 
-# Botão para calcular a soma
-btn_resultado = Button(tela, text="> Calcular <", command=calcularSoma, bg="#3b6b7f", fg="white", font="Arial 12 bold")
-btn_resultado.place(x=50, y=165)
+btn_cadastrar = Button(tela, text="Cadastrar", command=cadastrarCliente, bg="#3b6b7f", fg="white", font="Arial 12 bold")
+btn_cadastrar.place(x=200, y=210)
 
-# Mantém a janela aberta e interativa até ser fechada manualmente
 tela.mainloop()

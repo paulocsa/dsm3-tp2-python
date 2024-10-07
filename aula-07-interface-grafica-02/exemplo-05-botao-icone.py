@@ -23,3 +23,6 @@ btn_consultar = Button(tela, text="Consultar", image=foto_consultar, compound=TO
 btn_sair = Button(tela, text="Sair", image=foto_sair, compound=RIGHT).place(x=420,y=30)
 
 tela.mainloop()
+
+
+
